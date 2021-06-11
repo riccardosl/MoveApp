@@ -2,6 +2,19 @@
 <div>Name: </div>
 <div>Prepared Date: <%= box.addedDate.toDateString() %></div>
 
+<div>
+    <img src="<%= box.coverImagePath %>">
+    <div>
+      <a href="/boxes/<%= box.id %>/edit">Edit</a>
+      <%- include('../elements/deleteForm', { url: `/box/${box.id}` }) %>
+      <a href="/items/<%= box.author.id %>">View Author</a>
+    </div>
+  </div>
+  <div>
+    <div>Author:</div>
 
-<a href="/boxes/<%= box.id %>/edit">Edit</a>
-<%- include('../elements/deleteForm', { url: `/boxes/${box.id}` }) %>
+
+    <div>Description:</div>
+    <div><%= box.description %></div>
+  </div>
+</div>

@@ -11,10 +11,11 @@
   <button type="submit">Search</button>
 </form>
 <div>
-<br>
-<% boxes.forEach(box => { %>
-  <a href="/boxes/<%= box.id %>">
-  <img height="150" width="100" src="<%= box.coverImagePath %>">
-  </a>
-<% }) %>
+
+
+
+<div>
+  <% boxes.forEach(box => { %>
+    <img height="150" width="100" src="<%= box.coverImagePath %>">
+  <% }) %>
 </div>
