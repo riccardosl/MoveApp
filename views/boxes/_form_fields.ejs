@@ -1,0 +1,37 @@
+<div>
+  <div>
+    <label>Box label</label>
+    <input type="text" name="title" value="<%= box.title %>">
+  </div>
+  <div>
+    <label>Choose an item to add</label>
+    <select name="item">
+      <% items.forEach(item => { %>
+        <% if (item.id === box.item) { %>
+          <option selected label="<%= item.name %>" value="<%= item.id %>">
+        <% } else { %>
+          <option label="<%= item.name %>" value="<%= item.id %>">
+        <% } %>
+      <% }) %>
+    </select>
+  </div>
+</div>
+
+<div>
+  <div>
+    <label>Packaging Date</label>
+    <input type="date" name="addedDate"
+          value="<%= box.addedDate == null ? '' : box.addedDate.toISOString().split('T')[0] %>">
+  </div>
+
+
+<div>
+  <div>
+    <label>Image</label>
+    <input type="file" name="cover" class="filepond">
+  </div>
+  <div>
+    <label>Description</label>
+    <textarea name="description"><%= box.description %></textarea>
+  </div>
+</div>

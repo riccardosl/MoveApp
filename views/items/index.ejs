@@ -7,4 +7,8 @@
 <br>
 <% items.forEach(item => { %>
   <div><%= item.name %></div>
+  <a href="/items/<%= item.id %>">View</a>
+  <a href="/items/<%= item.id %>/edit">Edit</a>
+  <%- include('../elements/deleteForm', { url : `/items/${item.id}`}) %>
+
 <% }) %>

@@ -1,0 +1,10 @@
+<h2><%= box.title %></h2>
+<div>Name: </div>
+<div>Prepared Date: <%= box.addedDate.toDateString() %></div>
+<div>Weight: <%= box.boxWeight %></div>
+<div>Source: <%= box.source %></div>
+<div>Destination: <%= box.destination %></div>
+<div>Description: <%= box.description %></div>
+
+<a href="/boxes/<%= box.id %>/edit">Edit</a>
+<%- include('../elements/deleteForm', { url: `/boxes/${box.id}` }) %>

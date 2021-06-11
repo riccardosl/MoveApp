@@ -6,14 +6,16 @@ const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
-
+const methodOverride = require('method-override')
 const indexRouter = require('./routes/index')
 const itemRouter = require('./routes/items')
+const boxRouter = require('./routes/boxes')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
+app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 
@@ -30,5 +32,6 @@ db.once('open', () => console.log('Connected to Mongo!'))
 
 app.use('/', indexRouter)
 app.use('/items', itemRouter)
+app.use('/boxes', boxRouter)
 
 app.listen(process.env.PORT || 3000)

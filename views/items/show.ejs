@@ -1,0 +1,3 @@
+<h2><%= item.name %></h2>
+<a href="/items/<%= item.id %>/edit">Edit</a>
+<%- include('../elements/deleteForm', { url: `/items/${item.id}` }) %>

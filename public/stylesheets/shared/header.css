@@ -1,0 +1,19 @@
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.header-nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav li {
+  list-style: none;
+}
+
+.header-nav li a {
+  padding: 1rem;
+}
