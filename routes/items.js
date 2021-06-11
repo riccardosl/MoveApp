@@ -40,6 +40,7 @@ router.post('/', async (req, res) => {
     })
   }
 })
+
 // SHOW ITEMs PAGE
 router.get('/:id', async (req, res) => {
   try {
@@ -50,8 +51,7 @@ router.get('/:id', async (req, res) => {
       // add box
     })
   } catch (err){
-    // remove in prod
-    console.log(err)
+
     res.redirect('/')
   }
 

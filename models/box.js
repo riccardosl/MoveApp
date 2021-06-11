@@ -21,7 +21,7 @@ const boxSchema = new mongoose.Schema({
   boxWeight: {
     type: Number
   },
-  coverImage: {
+  coverImageName: {
     type: String,
     required: true
   },
@@ -35,7 +35,7 @@ const boxSchema = new mongoose.Schema({
   destination: {
     type: String
   },
-  name: {
+  itemName: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Item'
   },

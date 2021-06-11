@@ -1,5 +1,5 @@
 <div>
-  <div>
+
     <label>Box label</label>
     <input type="text" name="title" value="<%= box.title %>">
   </div>
@@ -15,23 +15,18 @@
       <% }) %>
     </select>
   </div>
-</div>
 
-<div>
   <div>
     <label>Packaging Date</label>
     <input type="date" name="addedDate"
           value="<%= box.addedDate == null ? '' : box.addedDate.toISOString().split('T')[0] %>">
-  </div>
-
-
+</div>
 <div>
   <div>
     <label>Image</label>
-    <input type="file" name="cover" class="filepond">
+    <input type="file" name="cover">
   </div>
   <div>
     <label>Description</label>
     <textarea name="description"><%= box.description %></textarea>
   </div>
-</div>

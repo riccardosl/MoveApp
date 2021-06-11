@@ -39,18 +39,18 @@ router.get('/new', async (req, res) => {
 
 // Create Book Route
 router.post('/', upload.single('cover'), async (req, res) => {
+  console.log('req', req.body)
   const fileName = req.file != null ? req.file.filename : null
   const box = new Box({
     title: req.body.title,
     item: req.body.item,
-
+    addedDate: new Date(req.body.addedDate),
     coverImageName: fileName,
     description: req.body.description
   })
-
   try {
     const newBox = await box.save()
-    // res.redirect(`books/${newBook.id}`)
+    //res.redirect(`boxes/${newbox.id}`)
     res.redirect(`boxes`)
   } catch {
     if (box.coverImageName != null) {
