@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
   let query = Box.find()
   if (req.query.title != null ) {
     query = query.regex('title', new RegExp(req.query.title, 'i'))
-
   }
   try {
     const boxes = await query.exec()
@@ -49,7 +48,7 @@ router.post('/', upload.single('cover'), async (req, res) => {
     title: req.body.title,
     item: req.body.item,
     addedDate: new Date(req.body.addedDate),
-    //boxWeight: req.body.boxWeight,
+    boxWeight: req.body.boxWeight,
     coverImageName: fileName,
     description: req.body.description
   })
@@ -89,7 +88,52 @@ async function renderNewPage(res, box, hasError = false) {
 }
 
 
+// UPDATE Route BOX
+router.put('/:id', async (req, res) => {
+  let box
 
+  try {
+    box = await Box.findById(req.params.id)
+    box.title = req.body.title
+    box.item = req.body.item
+    box.addedDate = new Date(req.body.addedDate)
+    box.description = req.body.description
+    if (req.body.cover != null && req.body.cover !=='') {
+    //  savePhoto(box, req.body.cover)
+        console.log('TO DO')
+    }
+    await box.save()
+    res.redirect(`/boxes/${box.id}`)
+  } catch {
+    // remove box cover
+    if (box != null) {
+      renderEditPage(res, box, true)
+    } else {
+      redirect('/')
+    }
+    //renderNewPage(res, box, true)
+  }
+
+})
+
+// DELETE BOX
+router.delete('/:id', async (req, res) => {
+  let box
+  try {
+    box = await Box.findById(req.params.id)
+    await box.remove()
+    res.redirect('/boxes')
+  } catch {
+    if (box != null) {
+      res.render('/boxes/show', {
+        box: box,
+        errorMessage: 'Im not able to remove'
+      })
+    } else {
+      res.redirect('/')
+    }
+  }
+})
 
 
 

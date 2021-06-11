@@ -22,6 +22,10 @@
           value="<%= box.addedDate == null ? '' : box.addedDate.toISOString().split('T')[0] %>">
 </div>
 <div>
+  <label>Box Weight</label>
+  <input type="number" name="boxWeight" min="1" value="<%= box.boxWeight %>">
+</div>
+<div>
   <div>
     <label>Image</label>
     <input type="file" name="cover">

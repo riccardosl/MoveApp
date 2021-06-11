@@ -35,7 +35,7 @@ const boxSchema = new mongoose.Schema({
   destination: {
     type: String
   },
-  itemName: {
+  item: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Item'
   },
