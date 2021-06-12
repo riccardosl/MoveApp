@@ -21,6 +21,6 @@ body-parser: 1.19.0,
 ejs: 3.1.6,
 express: 4.17.1,
 express-ejs-layouts: 2.5.0,
-method-override": 3.0.0,
+method-override: 3.0.0,
 mongoose: 5.12.7,
 multer: 1.4.2
